@@ -1,5 +1,6 @@
 import "../zoomtest/Zoom.css";
 import { useState, useEffect } from "react";
+import { BtnVolver } from "../btn-volver/BtnVolver.jsx"
 
 import { db } from "../../data/firebase.jsx";
 import {
@@ -11,7 +12,6 @@ import {
   doc,
   getDoc,
 } from "firebase/firestore";
-import { BtnVolver } from "../btn-volver/BtnVolver.jsx";
 import SearchBar from "../PruebaNav/SearchBar.jsx";
 import DataEjercicios from "./base-ejer.json";
 
@@ -75,23 +75,26 @@ export function Zoom() {
     <div className="container-zoom">
       <div className="container-videos">
         <section className="search-bar-ejer">
-          <SearchBar 
-            placeholder="Buscar ejercicio..." 
-            data={DataEjercicios}
-            handleLinkClick={handleLinkClick} />
-            <div className="conteiner-video">
-              {linkToShow && ( 
-                <iframe
-                height="100%"
-                width="100%"
-                  src={linkToShow}
-                  // src={renderizarLink}
-                  // src="https://www.youtube.com/embed/xjR270oPxPs?modestbranding=1&rel=0"
-                  title="YouTube video player"
-                  // allowFullScreen
-                />
-                 )}  
-            </div>    
+          <div className="barra-y-boton">
+            <SearchBar 
+              placeholder="Buscar ejercicio..." 
+              data={DataEjercicios}
+              handleLinkClick={handleLinkClick} />
+            <BtnVolver />  
+          </div>
+          <div className="conteiner-video">
+            {linkToShow && ( 
+              <iframe
+              height="100%"
+              width="100%"
+                src={linkToShow}
+                // src={renderizarLink}
+                // src="https://www.youtube.com/embed/xjR270oPxPs?modestbranding=1&rel=0"
+                title="YouTube video player"
+                // allowFullScreen
+              />
+                )}  
+          </div>    
         </section>
 
         {/* <section className="search-bar-timer">

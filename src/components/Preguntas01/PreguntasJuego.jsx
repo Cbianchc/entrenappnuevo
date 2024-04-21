@@ -112,8 +112,7 @@ const oprimir_btn = (index) => {
 if (showModal === true) {
   Swal.fire({
     title: `${result}`,
-    html: 'Dale play al video para hacer el ejercicio' +
-            '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/811825533?h=194e5b37a6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="jumpjacks20sec1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
+    // html: '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/811825533?h=194e5b37a6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="jumpjacks20sec1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
        
     allowOutsideClick: 'false',
     showCancelButton: false,
@@ -122,7 +121,7 @@ if (showModal === true) {
     denyButtonColor: '#d33',
     confirmButtonText: 'Listo, dame otro!',
     denyButtonText: "Salir del juego",
-    width: '60vw',
+    width: '80vw',
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.reload()
