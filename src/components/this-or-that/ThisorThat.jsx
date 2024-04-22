@@ -60,6 +60,11 @@ export function ThisorThat (){
         setMostrarEjer(true)
     }
 
+    const burpee = "https://www.youtube.com/embed/ss3nmrhZMiA?si=xO_sbKVq3DL4vlh2?modestbranding=1&rel=0";
+    const jj = "https://www.youtube.com/embed/dHpHAABozys?si=6gxpAFsq6FVQMW3k?modestbranding=1&rel=0";
+
+
+
 //---------------------------------------Dispara modal
 if (mostrarEjer === true) {
     Swal.fire({
