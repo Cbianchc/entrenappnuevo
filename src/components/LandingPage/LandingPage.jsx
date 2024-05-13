@@ -1,4 +1,6 @@
 import { NuevaCardJuego } from "../CardJuego2/NuevaCardJuego"
+import { CardJuego2 } from "../CardJuego2/CardJuego2"
+
 
 export function LandingPage() {
     return(
@@ -47,11 +49,18 @@ export function LandingPage() {
                     juegoId="nuncanunca"
                     />
                 <NuevaCardJuego 
+                    tituloJuego="HgybcNn/misterybox.jpg" 
+                    Nombre="Regalos"
+                    descripcion="Primera prueba de juego de regalos"
+                    juegoId="regalos"
+                    />    
+                <NuevaCardJuego 
                     tituloJuego="27zsbYH/zoom-logo.png" 
-                    Nombre="Zoom 1"
+                    Nombre="Zoom"
                     descripcion="Primera prueba del template para zoom"
                     juegoId="zoomtest"
-                    />    
+                    />
+                        
             </div>
              
 

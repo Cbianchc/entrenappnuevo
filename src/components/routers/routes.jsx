@@ -5,6 +5,7 @@ import { ThisThat }  from "../LandingPage/ThisThat.jsx";
 import { Preguntas } from "../LandingPage/Preguntas";
 import { YoNunca } from "../LandingPage/YoNunca.jsx";
 import { PagZoom } from "../LandingPage/PagZoom.jsx";
+import { ElejirRegalos } from "../LandingPage/ElejirRegalos.jsx";
 
 
 export function MyRoutes() {
@@ -18,6 +19,7 @@ export function MyRoutes() {
           <Route exact path="/preguntas" element={<Preguntas />} />
           <Route exact path="/nuncanunca" element={<YoNunca />} />
           <Route exact path="/zoomtest" element={<PagZoom />} />
+          <Route exact path="/regalos" element={<ElejirRegalos />} />
         </Routes>
       </Router>
     );

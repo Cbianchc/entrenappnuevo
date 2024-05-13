@@ -2,15 +2,10 @@ import "../CardJuego2/NuevaCardJuego.css"
 import React from "react"
 import { Link } from 'react-router-dom';
 import { PptPage } from "../LandingPage/PptPage";
-
 // import { EntrarBotonCard } from "../EntrarBotonCard/EntrarBotonCard"
-
 
 export function NuevaCardJuego({ tituloJuego, Nombre, descripcion, juegoId }) {
     const textoJuego = tituloJuego
-    
-    
-    
     
     return(
         <div className="card-container">

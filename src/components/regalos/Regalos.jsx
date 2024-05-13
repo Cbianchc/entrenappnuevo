@@ -1,5 +1,5 @@
-import "../this-or-that/ThisorThat.css"
-import { BtnVolver } from "../btn-volver/BtnVolver"
+import "../regalos/Regalos.css"
+import { BtnVolver } from "../btn-volver/BtnVolver.jsx"
 import { useState, useEffect } from "react"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
@@ -15,27 +15,28 @@ import {
     limit,
   } from "firebase/firestore";
 
-export function ThisorThat (){
+export function Regalos (){
     const [mostrarEjer, setMostrarEjer] = useState(false)
     const [eventoClick, setEventoClick] = useState(null)
     const [foto1, setImagen1] = useState("")
     const [foto2, setImagen2] = useState("")
+    const [foto3, setImagen3] = useState("")
     const [opcion1, setOpcion1] = useState("")
     const [opcion2, setOpcion2] = useState("")
-    const [result, setResult] = useState("")
+    const [opcion3, setOpcion3] = useState("")
 
     const [tema, setTema] = useState([])
     
     const MySwal = withReactContent(Swal)
-    const ejercicios = [
-      " BURPEE",
-      " JUMPING JACKS",
-  ];
+  //   const ejercicios = [
+  //     " BURPEE",
+  //     " JUMPING JACKS",
+  // ];
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const querySnapshot = await getDocs(collection(db, "thisothat-nuevo"));
+            const querySnapshot = await getDocs(collection(db, "regalosAleatorios"));
             const temasData = [];
             querySnapshot.forEach((doc) => {
               temasData.push(doc.data());
@@ -45,10 +46,13 @@ export function ThisorThat (){
             const randomIndex = Math.floor(Math.random() * temasData.length);
             const randomTema = temasData[randomIndex];
 
-            setOpcion1(randomTema.opcion1);
-            setOpcion2(randomTema.opcion2);
-            setImagen1(randomTema.imagen1);
-            setImagen2(randomTema.imagen2);
+            setOpcion1(randomTema.sobre1);
+            setOpcion2(randomTema.sobre2);
+            setOpcion3(randomTema.sobre3);
+
+            setImagen1(randomTema.regalo1);
+            setImagen2(randomTema.regalo2);
+            setImagen3(randomTema.regalo3);
             
           } catch (error) {
             console.error("Error al cargar datos desde Firebase:", error);
@@ -71,16 +75,14 @@ export function ThisorThat (){
 //---------------------------------------Dispara modal
 if (mostrarEjer === true) {
     Swal.fire({
-      title: `${eventoClick}` + " = " + `${result}`,
-      // html: `${result}`,
-      // html: '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/811825533?h=194e5b37a6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="jumpjacks20sec1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',  
+      imageUrl: `${eventoClick}`,
       allowOutsideClick: 'false',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Listo, dame otro!',
       cancelButtonText: "Salir del juego",
-      width: '60vw',
+      width: '80vw',
       
     }).then((result) => {
       if (result.isConfirmed) {
@@ -93,28 +95,22 @@ if (mostrarEjer === true) {
   }
   //--------------------------------------Fin de Sweat allert
     return(
-        <div className="container-tot">
-             <section className="titulo-pregunta">
-                <h2 className="titulo_preferis">¿Cuál preferís?</h2>
-                <p className="p_haceclick">Hace click en una opcion, el ejercicio depende de tu eleccion 😎</p>
+        <div className="container-preguntas">
+             <section className="titulo-regalo">
+                <h2 className="titulo-texto">¿Elejí un regalo crack?</h2>
+                <p className="hace-click-regalo">Hace click en una opcion 😎</p>
             </section>
-            <section className="container_opciones">
-                <div className="opcion1" onClick={() => handleClick(opcion1)}>
-                <img src={foto1} id="foto1" alt="imagen1" />
-                <div className="test-div-text">
-                    <h4 id="titulo1" className="nombre-foto-1">
-                        {opcion1}
-                    </h4>
-                </div>
+            <section className="container_regalos">
+                <div className="opciones-regalo" onClick={() => handleClick(opcion1)}>
+                  <img src={foto1} id="foto-regalo" alt="imagen1" />
                 </div>
 
-                <div className="opcion1" onClick={() => handleClick(opcion2)}>
-                <img src={foto2} id="foto1" alt="imagen2" />
-                <div className="test-div-text">
-                    <h4 id="titulo1" className="nombre-foto-1">
-                        {opcion2}
-                    </h4>
+                <div className="opciones-regalo" onClick={() => handleClick(opcion2)}>
+                  <img src={foto2} id="foto-regalo" alt="imagen2" />
                 </div>
+
+                <div className="opciones-regalo" onClick={() => handleClick(opcion3)}>
+                  <img src={foto3} id="foto-regalo" alt="imagen2" />
                 </div>
             </section>
             <section className="boton_inicio">
