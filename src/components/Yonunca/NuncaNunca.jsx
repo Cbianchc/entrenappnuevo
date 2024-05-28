@@ -71,7 +71,7 @@ if (mostrarEjer === true) {
         window.location.reload() 
         
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        window.location.href = 'http://localhost:5173'
+        window.location.href = '/'
       }
     })
   }
